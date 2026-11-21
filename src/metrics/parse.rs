@@ -1,6 +1,11 @@
 use csv::Reader;
 
-pub fn parse_data(file_path: &str, id_col: &str, y_true_col: &str, y_pred_col: &str) -> (Vec<i32>, Vec<i32>) {
+pub fn parse_data(
+    file_path: &str,
+    id_col: &str,
+    y_true_col: &str,
+    y_pred_col: &str,
+) -> (Vec<i32>, Vec<i32>) {
     let mut rdr = Reader::from_path(file_path).unwrap();
     let headers = rdr.headers().unwrap().clone();
 

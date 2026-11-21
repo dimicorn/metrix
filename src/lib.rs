@@ -1,13 +1,14 @@
 pub mod metrics {
-    pub mod f1_score;
+    pub mod classification;
+    pub mod regression;
     pub mod parse;
-    pub mod precision;
-    pub mod recall;
     pub(crate) mod utils;
 }
 
-pub use metrics::f1_score::f1_score;
+pub(crate) use metrics::classification::confusion_matrix;
+pub use metrics::classification::{
+    f1_score, pr_auc, precision, precision_curve, recall, recall_curve, roc_auc,
+};
+pub use metrics::regression::{mae, mse, r2_score};
 pub use metrics::parse::parse_data;
-pub use metrics::precision::precision;
-pub use metrics::recall::recall;
-pub(crate) use metrics::utils::confusion_matrix;
+pub(crate) use metrics::utils::DEFAULT_THRESHOLDS;
